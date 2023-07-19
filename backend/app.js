@@ -14,7 +14,7 @@ const cors = require("cors");
 // }));
 
 app.use(cors({
-  origin: ['*', 'http://localhost:3000', 'http://localhost:3001','https://eshop-4tue.vercel.app/'],
+  origin: ['*', 'http://localhost:3000', 'http://localhost:3001', 'https://eshop-4tue.vercel.app', 'https://eshop-iota-azure.vercel.app/api/v2', 'https://eshop-iota-azure.vercel.app', 'https://eshop-g4c8.vercel.app','https://eshop-g4c8.vercel.app/api/v2'],
   credentials: true
 }));
 
