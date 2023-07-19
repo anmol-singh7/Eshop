@@ -5,20 +5,6 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
-// app.use(cors());
-
-
-// app.use(cors({
-//   origin: '*',
-//   credentials: true
-// }));
-
-app.use(cors({
-  origin: ['*', 'http://localhost:3000', 'http://localhost:3001', 'https://eshop-4tue.vercel.app', 'https://eshop-iota-azure.vercel.app/api/v2', 'https://eshop-iota-azure.vercel.app', 'https://eshop-g4c8.vercel.app','https://eshop-g4c8.vercel.app/api/v2'],
-  credentials: true
-}));
-
-
 app.use(express.json());
 app.use(cookieParser());
 app.use("/test", (req, res) => {
@@ -45,6 +31,13 @@ const order = require("./controller/order");
 const conversation = require("./controller/conversation");
 const message = require("./controller/message");
 const withdraw = require("./controller/withdraw");
+
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
 
 app.use("/api/v2/user", user);
 app.use("/api/v2/conversation", conversation);
