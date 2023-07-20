@@ -67,6 +67,7 @@ const cors = require("cors");
 
 app.use(cors({
   origin: 'https://eshop-4tue.vercel.app',
+  credentials: true, 
 }));
 
 app.use(express.json());
